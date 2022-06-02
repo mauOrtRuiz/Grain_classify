@@ -197,9 +197,10 @@ options = trainingOptions('sgdm', ...
 net= trainNetwork(augimdsTrain,lgraph,options);
 ```
 
-Training process achieved an accuracy of 92%
+Training process achieved an accuracy of 65%
 
 
 
 
 
+![entrenamiento](https://user-images.githubusercontent.com/44585823/171682328-61d57794-ea9b-444e-8ac7-36a91193b92c.png)
