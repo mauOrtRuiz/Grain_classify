@@ -120,3 +120,5 @@ Big | 2064 |
 Next a Deep learning neural network was selected.
 
 
+![networks_examples](https://user-images.githubusercontent.com/44585823/171680445-4b4e076c-6f8f-4df0-9a3f-3a589c283d70.png)
+Relevant neural networks according to Accuracy, Resnet50 was selected for this project
