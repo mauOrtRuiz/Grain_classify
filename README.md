@@ -117,7 +117,22 @@ Fine  | 2784 |
 Medium| 2256 | 
 Big | 2064 | 
 
+
+
+
+
+
+
+
+![F1](https://user-images.githubusercontent.com/44585823/171960413-7a700555-3582-4651-ab65-2879f1f3b50f.jpg)
+![FF1](https://user-images.githubusercontent.com/44585823/171960415-e0924914-ee5c-4de3-be25-2ca1a0ab8a67.jpg)
+![M1](https://user-images.githubusercontent.com/44585823/171960417-73d1ea0c-5914-41e5-97b4-182945859fbb.jpg)
+
+
 Next a Deep learning neural network was selected.
+
+
+
 
 
 ![networks_examples](https://user-images.githubusercontent.com/44585823/171680445-4b4e076c-6f8f-4df0-9a3f-3a589c283d70.png)
