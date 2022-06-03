@@ -1,9 +1,13 @@
 # Grain_classify
-A Neural network for Grain Classification Images. Images were captured by PhD Pedro Paramo with following characteristics:
+A Neural network method for Grain Classification  of superalloy Images. 
+Images were obtained by Ph.D. Pedro ParamoK.  with following characteristics:
+
 Fine
 Medium
 Big
-After a first inspection of data 
+
+
+After a first inspection of data some basic statistics of the images set is obtained. 
 ```
 clear
 
@@ -54,11 +58,12 @@ Fine  | 87 |
 Medium| 47 | 
 Big | 43 | 
 
+RGM colour images
 Size 1024X1280 
 
 
-Next images are spplited into 4 smaller of size 512x512 and after data augemtation: rotate 90 degrees, rotate -90 degrees, flipp up and flip left follon total images.
-Images are resized to 1/5 and cropped to 224x224 pixel size
+Next images are spplited into 4 smaller of size 512x512 and after data augemtation: rotate 90 degrees, rotate -90 degrees, flip up and flip left.
+Also, images are resized to 0.5 and cropped to 224x224 pixel size
 ```
 conteo=1;
 for k=1:totales(1)
@@ -109,7 +114,7 @@ for k=Medianos:Medianos+totales(3)-1
 
 end
 ```
-
+A completely new set of 224x224 images were octained.
 
 Desciption |Total images | 
 --- | --- | 
@@ -119,24 +124,33 @@ Big | 2064 |
 
 
 
-
-
-
-
+Example of Fine grain images
 
 ![F1](https://user-images.githubusercontent.com/44585823/171960413-7a700555-3582-4651-ab65-2879f1f3b50f.jpg)
-![FF1](https://user-images.githubusercontent.com/44585823/171960415-e0924914-ee5c-4de3-be25-2ca1a0ab8a67.jpg)
+
+
+Example of Medium grain images
+
 ![M1](https://user-images.githubusercontent.com/44585823/171960417-73d1ea0c-5914-41e5-97b4-182945859fbb.jpg)
 
 
-Next a Deep learning neural network was selected.
+
+Example of Big grain images
+
+![FF1](https://user-images.githubusercontent.com/44585823/171960415-e0924914-ee5c-4de3-be25-2ca1a0ab8a67.jpg)
+
+
+
+
+Next a Deep learning neural network was selected. From the image we can compare performance of different images and we can see
 
 
 
 
 
 ![networks_examples](https://user-images.githubusercontent.com/44585823/171680445-4b4e076c-6f8f-4df0-9a3f-3a589c283d70.png)
-Relevant neural networks according to Accuracy, Resnet50 was selected for this project
+
+Relevant neural networks according to Accuracy, we selected RESNET50 for this project. The next code is to train the network. Data was splitted into training and validation sets.
 
 
 
