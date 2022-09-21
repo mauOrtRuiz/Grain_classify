@@ -1,13 +1,13 @@
 # Grain_classify
-A Neural network method for Grain Classification  of superalloy Images. 
-Images were obtained by Ph.D. Pedro ParamoK.  with following characteristics:
+Different Deep Neural networks are studied and trained to classify Grain size  of superalloy Images. 
+Images were obtained at previous study by Ph.D. Pedro Paramo Kañetas. The networks analysed in present study indicate that deep neural networks performs over 0.82 accuracy to estimate grain size.  Three grain sizes are estimated
 
 Fine
 Medium
 Big
 
 
-After a first inspection of data some basic statistics of the images set is obtained. 
+After a first inspection of data some basic statistics of the image set are obtained. 
 ```
 clear
 
