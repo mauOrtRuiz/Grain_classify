@@ -233,3 +233,13 @@ Training process achieved an accuracy of 65%
 
 
 ![entrenamiento](https://user-images.githubusercontent.com/44585823/171682328-61d57794-ea9b-444e-8ac7-36a91193b92c.png)
+
+
+
+Network |Accuracy | 
+--- | --- | 
+MobileNetV2  | 0.8196 | 
+ResNet 50| 0.7863 | 
+Big | 2064 | 
+
+
