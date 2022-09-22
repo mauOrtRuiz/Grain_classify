@@ -54,11 +54,6 @@ Big | 384 |
 Different networks were trainned and although a high accuracy was obtained after training, Validation was performed with a selected group of completely new images not seen during training.
 
 
-
-
-
-![entrenamiento](https://user-images.githubusercontent.com/44585823/171682328-61d57794-ea9b-444e-8ac7-36a91193b92c.png)
-
 ```
 filenameTE = fullfile('D:\300123\Documentos\Proyecto_GrainSize\PreparadosColor\');
 imds = imageDatastore(filenameTE, 'LabelSource', 'foldernames', 'IncludeSubfolders',true);
