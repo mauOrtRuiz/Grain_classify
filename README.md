@@ -240,6 +240,6 @@ Network |Accuracy |
 --- | --- | 
 MobileNetV2  | 0.8196 | 
 ResNet 50| 0.7863 | 
-Big | 2064 | 
-
+Densenet 201| 0.824 | 
+Alex net| 0.7843 | 
 
