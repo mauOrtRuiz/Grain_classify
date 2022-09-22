@@ -58,7 +58,8 @@ Different networks were trainned and although a high accuracy was obtained after
 
 
 ![entrenamiento](https://user-images.githubusercontent.com/44585823/171682328-61d57794-ea9b-444e-8ac7-36a91193b92c.png)
-´´
+
+```
 filenameTE = fullfile('D:\300123\Documentos\Proyecto_GrainSize\PreparadosColor\');
 imds = imageDatastore(filenameTE, 'LabelSource', 'foldernames', 'IncludeSubfolders',true);
 [imdsTrain,imdsValidation] = splitEachLabel(imds,0.8,'randomized');
@@ -135,7 +136,7 @@ options = trainingOptions('sgdm', ...
 
 
 [net, info]= trainNetwork(augimdsTrain,lgraph,options);
-´´
+```
 
 
 ![Training_process](https://user-images.githubusercontent.com/44585823/191779577-42eccf52-eabb-45ae-bff0-d9b9303425c3.png)
