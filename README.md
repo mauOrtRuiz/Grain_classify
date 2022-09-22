@@ -141,6 +141,10 @@ options = trainingOptions('sgdm', ...
 
 ![Training_process](https://user-images.githubusercontent.com/44585823/191779577-42eccf52-eabb-45ae-bff0-d9b9303425c3.png)
 
+Performance of classificationn was evaluated by means of accuracy. Accuracy of segmentation is obtained by the following expression:
+
+   <img src="https://latex.codecogs.com/svg.image?Accuracy=\frac{TP&plus;TN}{TP&plus;FP&plus;TN&plus;FN}" title="Accuracy=\frac{TP+TN}{TP+FP+TN+FN}" />
+   
 Network |Accuracy | 
 --- | --- | 
 MobileNetV2  | 0.8196 | 
@@ -148,3 +152,8 @@ ResNet 50| 0.7863 |
 Densenet 201| 0.824 | 
 Alex net| 0.7843 | 
 
+
+The best result was obtained with Densenet 201. Its corresponding Confusion matrix is as follow
+
+
+![ConfusionGood_Densenet](https://user-images.githubusercontent.com/44585823/191781919-58a03441-d9d8-41ea-a780-4fbbf72be71a.jpg)
