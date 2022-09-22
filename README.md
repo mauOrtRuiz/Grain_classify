@@ -1,56 +1,6 @@
 # Grain_classify
-Different Deep Neural networks are studied and trained to classify Grain size  of superalloy Images. 
-Images were obtained at previous study by Ph.D. Pedro Paramo Kañetas. The networks analysed in present study indicate that deep neural networks performs over 0.82 accuracy to estimate grain size.  Three grain sizes are estimated
-
-Fine
-Medium
-Big
-
-
-After a first inspection of data some basic statistics of the image set are obtained. 
-```
-clear
-
-filenameTE = fullfile('D:\Research_Materials_PPK\Datos\Tamaños de grano_Mau y Pero\');
-imds = imageDatastore(filenameTE, 'LabelSource', 'foldernames', 'IncludeSubfolders',true);
-
-Grandes = find(imds.Labels == 'Grandes', 1);
-Finos = find(imds.Labels == 'Finos', 1);
-
-figure
-imshow(readimage(imds,Finos))
-
-tbl = countEachLabel(imds)
-totales=uint8(tbl.Count);
-minix=100000;
-maxix=0;
-miniy=100000;
-maxiy=0;
-for k=1:totales(1)+totales(2)+totales(3)
-    Imn=readimage(imds,double(k));
-    [x, y, z]=size(Imn);
-    if(x<minix)
-        minix=x;
-    end
-    if(y<miniy)
-        miniy=y;
-    end
-
-    if(x>maxix)
-        maxix=x;
-    end
-    if(y>maxiy)
-        maxiy=y;
-    end
-
-end
-minix
-miniy
-```
-the following characteristics were obtained:
-
-  
-
+Different Deep Neural networks are analysed and trained to present a Grain size classification system of superalloy Images. 
+Images were obtained at previous study by Ph.D. Pedro Paramo Kañetas. Four different Neural Networks were selected: AlexNet, MobileNet V2, Resnet50 and DenseNet 201. Classification performance was measured in accuracy awith the highest of 0.824 achieved by Densenet 201. The three classification levels are Fine, Medium  and Big. Table 1 shows the  total set of images, 177, divided into the three different clases. Most of the images of size 1024x1280.
 Number of images
 Desciption |Total images | 
 --- | --- | 
@@ -61,110 +11,69 @@ Big | 43 |
 RGM colour images
 Size 1024X1280 
 
-
-Next images are spplited into 4 smaller of size 512x512 and after data augemtation: rotate 90 degrees, rotate -90 degrees, flip up and flip left.
-Also, images are resized to 0.5 and cropped to 224x224 pixel size
-```
-conteo=1;
-for k=1:totales(1)
-    Imn=readimage(imds,double(k));
-    Imn=imresize(Imn,0.5);
-    dir_outim = fullfile('D:\Research_Materials_PPK\Datos\Datos_prepared\Finos\');
-    imagenS=Imn(1:224,1:224,:);
-    Augmentation_2
-    imagenS=Imn(1:224,257:257+223,:);
-    Augmentation_2
-    imagenS=Imn(257:257+223,1:224,:);
-    Augmentation_2
-    imagenS=Imn(257:257+223,257:257+223,:);
-    Augmentation_2
-
-end
-
-Grandes = find(imds.Labels == 'Grandes', 1);
-
-for k=Grandes:Grandes+totales(2)-1
-    Imn=imresize(readimage(imds,double(k)),0.5);
-
-    dir_outim = fullfile('D:\Research_Materials_PPK\Datos\Datos_prepared\Grandes\');
-    imagenS=Imn(1:224,1:224,:);
-    Augmentation_1
-    imagenS=Imn(1:224,257:257+223,:);
-    Augmentation_1
-    imagenS=Imn(257:257+223,1:224,:);
-    Augmentation_1
-    imagenS=Imn(257:257+223,257:257+223,:);
-    Augmentation_1
-
-end
-
-Medianos = find(imds.Labels == 'Medianos', 1)
-for k=Medianos:Medianos+totales(3)-1
-    Imn=imresize(readimage(imds,double(k)),0.5);
-    
-    dir_outim = fullfile('D:\Research_Materials_PPK\Datos\Datos_prepared\Medianos\');
-    imagenS=Imn(1:224,1:224,:);
-    Augmentation_1
-    imagenS=Imn(1:224,257:257+223,:);
-    Augmentation_1
-    imagenS=Imn(257:257+223,1:224,:);
-    Augmentation_1
-    imagenS=Imn(257:257+223,257:257+223,:);
-    Augmentation_1
-
-end
-```
-A completely new set of 224x224 images were octained.
-
-Desciption |Total images | 
---- | --- | 
-Fine  | 2784 | 
-Medium| 2256 | 
-Big | 2064 | 
-
-
-
 Example of Fine grain images
 
-![F1](https://user-images.githubusercontent.com/44585823/171960413-7a700555-3582-4651-ab65-2879f1f3b50f.jpg)
-
+![Samples_Finos](https://user-images.githubusercontent.com/44585823/191774552-80d43439-e011-48ab-8247-714abd7854c3.png)
 
 Example of Medium grain images
 
-![M1](https://user-images.githubusercontent.com/44585823/171960417-73d1ea0c-5914-41e5-97b4-182945859fbb.jpg)
-
+![Samples_Medianos](https://user-images.githubusercontent.com/44585823/191774576-6e88022b-82c5-415a-875c-32458491104c.png)
 
 
 Example of Big grain images
 
-![FF1](https://user-images.githubusercontent.com/44585823/171960415-e0924914-ee5c-4de3-be25-2ca1a0ab8a67.jpg)
+
+![Samples_Grandes](https://user-images.githubusercontent.com/44585823/191774593-707191be-cd5c-469d-8017-3998b5918de2.png)
 
 
-
-
-Next a Deep learning neural network was selected. From the image we can compare performance of different images and we can see
-
-
-
+Networks selected were: AlexNet, Mobile V2, Resnet 50 and Densenet 201
 
 
 ![networks_examples](https://user-images.githubusercontent.com/44585823/171680445-4b4e076c-6f8f-4df0-9a3f-3a589c283d70.png)
 
-Relevant neural networks according to Accuracy, we selected RESNET50 for this project. The next code is to train the network. Data was splitted into training and validation sets.
+
+
+The data was splitted into image patches od 224x224, and after data augmentation of 90, 180 degrees rotation, fip up/down  and flip left/right
+Two new sets of training and validation images were obtained:
+
+Training set
+Desciption |Total images | 
+--- | --- | 
+Fine  | 2432 | 
+Medium| 1776 | 
+Big | 1872 | 
+
+Validation set
+Desciption |Total images | 
+--- | --- | 
+Fine  | 320 | 
+Medium| 288 | 
+Big | 384 | 
+
+
+Different networks were trainned and although a high accuracy was obtained after training, Validation was performed with a selected group of completely new images not seen during training.
 
 
 
 
 
-outFolder='D:\Research_Materials_PPK\Datos\Datos_prepared';
-imgDir = fullfile(outFolder);
-imds = imageDatastore(imgDir, ...
-    'IncludeSubfolders',true, ...
-    'LabelSource','foldernames');
+![entrenamiento](https://user-images.githubusercontent.com/44585823/171682328-61d57794-ea9b-444e-8ac7-36a91193b92c.png)
+''
+filenameTE = fullfile('D:\300123\Documentos\Proyecto_GrainSize\PreparadosColor\');
+imds = imageDatastore(filenameTE, 'LabelSource', 'foldernames', 'IncludeSubfolders',true);
+[imdsTrain,imdsValidation] = splitEachLabel(imds,0.8,'randomized');
+numClasses = numel(categories(imdsTrain.Labels));
 
-```
-[imdsTrain,imdsValidation] = splitEachLabel(imds,0.7);
-net=googlenet;
+
+
+
+
+% Aqui se abre la red a usar
+%net=googlenet;
+net=alexnet;
+%net=resnet50;
+%net=mobilenetv2
+%net=densenet201;
 
 inputSize = net.Layers(1).InputSize;
 if isa(net,'SeriesNetwork') 
@@ -213,6 +122,7 @@ augimdsValidation = augmentedImageDatastore(inputSize(1:2),imdsValidation);
 
 miniBatchSize = 10;
 valFrequency = floor(numel(augimdsTrain.Files)/miniBatchSize);
+
 options = trainingOptions('sgdm', ...
     'MiniBatchSize',miniBatchSize, ...
     'MaxEpochs',6, ...
@@ -222,19 +132,13 @@ options = trainingOptions('sgdm', ...
     'ValidationFrequency',valFrequency, ...
     'Verbose',false, ...
     'Plots','training-progress');
-    
-net= trainNetwork(augimdsTrain,lgraph,options);
-```
-
-Training process achieved an accuracy of 65%
 
 
+[net, info]= trainNetwork(augimdsTrain,lgraph,options);
+''
 
 
-
-![entrenamiento](https://user-images.githubusercontent.com/44585823/171682328-61d57794-ea9b-444e-8ac7-36a91193b92c.png)
-
-
+![Training_process](https://user-images.githubusercontent.com/44585823/191779577-42eccf52-eabb-45ae-bff0-d9b9303425c3.png)
 
 Network |Accuracy | 
 --- | --- | 
